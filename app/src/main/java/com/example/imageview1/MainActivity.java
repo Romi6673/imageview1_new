@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    Button button;
+
     int num;
 
     @Override
@@ -19,9 +19,10 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView2 = findViewById(R.id.imageView2);
         ImageView imageView3 = findViewById(R.id.imageView3);
         ImageView imageView1 = findViewById(R.id.imageView1);
-        button = findViewById(R.id.button);
 
-        button.setOnClickListener(new View.OnClickListener() {
+
+        View imagebutton = null;
+        imagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Random random = new Random();
