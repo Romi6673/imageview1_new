@@ -9,36 +9,27 @@ import android.widget.ImageView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
     int num;
+    ImageView imageView1;
+    Random rnd = new Random();
+    int x = 0;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView imageView2 = findViewById(R.id.imageView2);
-        ImageView imageView3 = findViewById(R.id.imageView3);
-        ImageView imageView1 = findViewById(R.id.imageView1);
 
+        imageView1 = findViewById(R.id.imageView1);
+        btn = findViewById(R.id.btn);
 
-        View imagebutton = null;
-        imagebutton.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random random = new Random();
-                num = random.nextInt(2) + 1;
-                if (num == 1){
-                    imageView2.setVisibility(View.INVISIBLE);
-                    imageView3.setVisibility(View.INVISIBLE);
-                }
-                if (num==2){
-                    imageView1.setVisibility(View.INVISIBLE);
-                    imageView3.setVisibility(View.INVISIBLE);
-                }
-                if (num==3){
-                    imageView1.setVisibility(View.INVISIBLE);
-                    imageView2.setVisibility(View.INVISIBLE);
-                }
+                int[] imageResources = {R.drawable.image01, R.drawable.img, R.drawable.img_1};
+                int randomIndex = rnd.nextInt(imageResources.length);
+                imageView1.setImageResource(imageResources[randomIndex]);
+                btn.setText(randomIndex);
             }
         });
     }
